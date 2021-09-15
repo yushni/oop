@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"os"
 )
@@ -16,6 +17,11 @@ type writer interface {
 type fileCopier struct {
 	r reader
 	w writer
+}
+
+func (c *fileCopier) Read(p []byte) (n int, err error) {
+	fmt.Println("то якийсь мій супер класний рідер з складною логікою")
+	return c.r.Read(p)
 }
 
 func (c *fileCopier) copy() error {
@@ -35,13 +41,18 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer from.Close()
+
 	to, err := os.Create("composition/response.txt")
 	if err != nil {
 		panic(err)
 	}
+	defer to.Close()
 
 	fc := fileCopier{r: from, w: to}
 	if err := fc.copy(); err != nil {
 		panic(err)
 	}
+
+	// fc.Write([]byte("\n побільше програм"))
 }

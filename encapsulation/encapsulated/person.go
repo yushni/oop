@@ -5,6 +5,7 @@ import (
 )
 
 type Student struct {
+	// спитати який (скоуп) зона видимості полів структури
 	name string
 	age  int
 }

@@ -27,6 +27,7 @@ type greetings interface {
 	sayHello()
 }
 
+// todo: спитати шо таке ті "..."
 func startParty(greetings ...greetings) {
 	for _, greeting := range greetings {
 		greeting.sayHello()
@@ -35,9 +36,10 @@ func startParty(greetings ...greetings) {
 
 func main() {
 	yurii := student{name: "Юра", age: 24}
-	ivan := student{name: "Юра", age: 19}
-	petro := student{name: "Юра", age: 32}
+	ivan := student{name: "Іван", age: 19}
+	petro := student{name: "Петро", age: 32}
 
+	// todo: спитатись, шо буде якшо пес розівчиться казати 'sayHello'
 	rex := dog{breed: "вівчарка"}
 	startParty(ivan, yurii, petro, rex)
 }

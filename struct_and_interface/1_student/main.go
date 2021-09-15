@@ -9,6 +9,7 @@ type student struct {
 	age  int
 }
 
+// todo: спитатися студентів, шо сі стане, якшо спереду буде зірка
 func (s student) sayHello() {
 	fmt.Printf("Всім привіт, я студент! Мене звати %s, мені %d років\n", s.name, s.age)
 }

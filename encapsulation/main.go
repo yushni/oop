@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"epam-mentoring/oop/encapsulation/encapsulated"
 	"epam-mentoring/oop/encapsulation/not_encapsulated"
 )
@@ -11,6 +13,9 @@ func main() {
 
 	startParty(e)
 	startCorruptedParty(ne)
+
+	fmt.Println()
+	// показати fmt як працює
 }
 
 func startParty(students ...encapsulated.Student) {
@@ -23,8 +28,8 @@ func startParty(students ...encapsulated.Student) {
 
 func startCorruptedParty(students ...not_encapsulated.Student) {
 	for _, student := range students {
-		if student.NAME == "Іван" {
-			student.AGE = 132
+		if student.Name == "Іван" {
+			student.Age = 132
 		}
 
 		if student.IsAdult() {
